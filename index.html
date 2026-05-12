@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitan - Your Server's Analytics Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <!-- Animated background effects -->
+            <div class="background-effects">
+                <div class="glow-orb glow-orb-1"></div>
+                <div class="glow-orb glow-orb-2"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="hero-content">
+                <!-- Bot Icon -->
+                <div class="bot-icon-wrapper">
+                    <div class="bot-icon-glow"></div>
+                    <div class="bot-icon">
+                        <img src="Assets/icon.jpg" alt="Digitan Bot Icon" class="bot-image">
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <h1 class="hero-title">Your Server's Analytics Companion</h1>
+
+                <!-- Description -->
+                <p class="hero-description">
+                    <span class="brand-text">Digitan</span>, a powerful Discord bot that tracks server statistics, engages with your community through custom triggers,
+                    and provides comprehensive insights into your server's activity.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Add to Discord</button>
+                    <button class="btn btn-secondary" onclick="showDashboard()">View Dashboard</button>
+                    <button class="btn btn-secondary" onclick="showAbout()">About Us</button>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Powerful Features</h2>
+                    <p class="section-description">
+                        Everything you need to understand and engage with your Discord community
+                    </p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-message"></i>
+                        </div>
+                        <h3 class="feature-title">Message Analytics</h3>
+                        <p class="feature-description">
+                            Track messages per day and per second with detailed insights into your server's activity patterns.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">Member Tracking</h3>
+                        <p class="feature-description">
+                            Monitor how many people join or leave your server with comprehensive member analytics.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <h3 class="feature-title">Channel Activity</h3>
+                        <p class="feature-description">
+                            Discover which channels are most active and where your community engages the most.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title">Conversation Triggers</h3>
+                        <p class="feature-description">
+                            Create custom conversation triggers and interact naturally with the bot for a dynamic experience.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">Interactive Games</h3>
+                        <p class="feature-description">
+                            Play engaging games with users in your server. More games are constantly being added!
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="feature-title">Voice Activity</h3>
+                        <p class="feature-description">
+                            Track how many minutes members spend in voice channels to understand engagement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bottom CTA -->
+                <div class="bottom-cta">
+                    <div class="cta-card">
+                        <h3 class="cta-title">Ready to elevate your server?</h3>
+                        <button class="btn btn-primary" onclick="showDashboard()">View Live Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="dashboard-header-content">
+                <button class="back-button" onclick="showHome()">
+                <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </button>
+                <h1 class="dashboard-title">Analytics Dashboard</h1>
+                <div class="spacer"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <!-- Messages Per Day -->
+                <div class="chart-card">
+                    <h2 class="chart-title">Messages Per Day</h2>
+                    <canvas id="messagesPerDayChart"></canvas>
+                </div>
+
+                <!-- Messages Per Second -->
+                <div class="chart-card">
+                    <h2 class="chart-title">Messages Per Second (Hourly Avg)</h2>
+                    <canvas id="messagesPerSecondChart"></canvas>
+                </div>
+
+                <!-- Member Activity -->
+                <div class="chart-card">
+                    <h2 class="chart-title">Member Activity</h2>
+                    <canvas id="memberActivityChart"></canvas>
+                </div>
+
+                <!-- Channel Activity -->
+                <div class="chart-card">
+                    <h2 class="chart-title">Channel Activity</h2>
+                    <canvas id="channelActivityChart"></canvas>
+                </div>
+
+                <!-- Voice Activity -->
+                <div class="chart-card chart-card-wide">
+                    <h2 class="chart-title">Voice Channel Activity (Minutes)</h2>
+                    <canvas id="voiceActivityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Messages (Week)</div>
+                    <div class="stat-value">2,523</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Peak Activity</div>
+                    <div class="stat-value">3.5 msg/s</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Net Members</div>
+                    <div class="stat-value">+78</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total VC Time</div>
+                    <div class="stat-value">3,870 min</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="page">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="dashboard-header-content">
+                <button class="back-button" onclick="showHome()">
+                <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </button>
+                <h1 class="dashboard-title">Meet the Creative Idiots</h1>
+                <div class="spacer"></div>
+            </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="dashboard-content">
+            <div class="team-grid">
+                <!-- Samuel -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/sam.png" alt="Samuel" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Samuel</h3>
+                    <p class="team-role">Main Developer</p>
+                    <p class="team-desc">The one who pitched the project idea and led the development from start to finish.</p>
+                </div>
+
+                <!-- Ali -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/ali.jpg" alt="Ali" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Ali</h3>
+                    <p class="team-role">Website Developer</p>
+                    <p class="team-desc">Creator of this website</p>
+                </div>
+
+                <!-- Vince -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/vince.jpg" alt="Vince" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Vince</h3>
+                    <p class="team-role">Social Media / Marketing</p>
+                    <p class="team-desc">In charge of social media presence and marketing strategies.</p>
+                </div>
+
+                <!-- Keith -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/keith.jpg" alt="Keith" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Keith</h3>
+                    <p class="team-role">Editor</p>
+                    <p class="team-desc">Editor for all things promotional and marketing related.</p>
+                </div>
+
+                <!-- James -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/james.jpg" alt="James" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">James</h3>
+                    <p class="team-role">Social Media Manager</p>
+                    <p class="team-desc">Manages social media accounts and works with other members to create engaging content.</p>
+                </div>
+
+                <!-- Matthew -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/matthew.jpg" alt="Matthew" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Matthew</h3>
+                    <p class="team-role">Business Model Canvas</p>
+                    <p class="team-desc">Develops the business model canvas and strategic planning.</p>
+                </div>
+
+                <!-- Angelo -->
+                <div class="team-card">
+                    <div class="team-img-wrapper"><img src="Assets/angelo.jpg" alt="Angelo" class="team-img" loading="lazy"></div>
+                    <h3 class="team-name">Angelo</h3>
+                    <p class="team-role">All-Rounder / Presenter</p>
+                    <p class="team-desc">Versatile team member and the main presenter for the project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - Load in correct order -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
